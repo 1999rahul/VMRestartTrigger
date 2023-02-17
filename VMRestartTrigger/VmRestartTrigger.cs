@@ -19,9 +19,9 @@ namespace VMRestartTrigger
         {
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             log.LogInformation(requestBody);
-            var data = JsonConvert.DeserializeObject(requestBody);//Can save data to DB
+            var data = JsonConvert.DeserializeObject<Rootobject>(requestBody);//Can save data to DB
 
-            return new OkResult();
+            return new OkObjectResult(data);
         }
     }
 
